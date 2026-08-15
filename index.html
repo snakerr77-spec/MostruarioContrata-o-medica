@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0b315c" />
+  <title>J&P Serviços Médicos | Recrutamento Médico</title>
+  <meta name="description" content="Sistema de recrutamento médico com login, gestão de currículos e compartilhamento de link de candidatura." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="assets/favicon.png" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/dashboard-polish.css" />
+</head>
+<body data-page="dashboard">
+  <section id="loginScreen" class="login-screen">
+    <div class="login-background-photo" aria-hidden="true"></div>
+    <video class="login-leaves-video" autoplay muted loop playsinline preload="auto" poster="assets/login-clinic-bg-blue.jpg" aria-hidden="true">
+      <source src="assets/leaves-overlay-blue.webm" type="video/webm" />
+    </video>
+    <div class="login-overlay"></div>
+
+    <header class="hero-topbar login-topbar">
+      <div class="brand-wrap jp-brand-wrap">
+        <img class="brand-logo-horizontal" src="assets/jp-logo-login.svg" alt="J&P Serviços Médicos" />
+        <div class="brand-context">
+          <strong>Recrutamento Médico</strong>
+          <span>Seleção e gestão de profissionais da saúde</span>
+        </div>
+      </div>
+      <div class="hero-chip login-hero-chip">Portal profissional • Medicina</div>
+    </header>
+
+    <div class="login-shell login-shell-focused">
+      <aside class="login-side-message">
+        <span class="side-message-pill">Gestão de talentos em saúde</span>
+        <h1>Talentos que cuidam.<br><em>Conexões que transformam.</em></h1>
+        <p>Centralize currículos, CRM, RQE, especialidades e etapas do processo seletivo em um só lugar.</p>
+        <div class="login-trust-list" aria-label="Benefícios da plataforma">
+          <span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="m5 10 3 3 7-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Seleção mais organizada</span>
+          <span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="m5 10 3 3 7-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Dados profissionais centralizados</span>
+        </div>
+      </aside>
+
+      <main class="login-card glass-card login-card-premium">
+        <div class="login-logo-placeholder jp-login-logo">
+          <img src="assets/jp-logo-login.svg" alt="J&P Serviços Médicos" />
+        </div>
+
+        <div class="login-card-heading">
+          <span class="login-card-eyebrow">Área restrita</span>
+          <h2>Recrutamento Médico</h2>
+          <div class="heading-leaf-line"><span></span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M15.8 4.5C10 5 6.1 7.4 5 11c-.9 2.8.4 5.3 3 5.8 3.8.7 6.9-3.2 7.8-12.3Z" fill="none" stroke="currentColor" stroke-width="1.3"/></svg><span></span></div>
+          <p>Entre com suas credenciais para acessar o painel.</p>
+        </div>
+
+        <form id="loginForm" class="login-form premium-login-form" novalidate>
+          <label for="loginEmail">E-mail</label>
+          <div class="input-wrap premium-input">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16v12H4zM4 7l8 6 8-6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+            <input id="loginEmail" type="email" placeholder="admin@jpservicosmedicos.com.br" value="admin@jpservicosmedicos.com.br" autocomplete="email" />
+          </div>
+
+          <label for="loginPassword">Senha</label>
+          <div class="input-wrap password-wrap premium-input">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="10" width="14" height="10" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M8 10V7a4 4 0 0 1 8 0v3" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>
+            <input id="loginPassword" type="password" placeholder="••••••••" value="123456" autocomplete="current-password" />
+            <button id="togglePassword" class="ghost-button tiny-button" type="button" aria-label="Mostrar senha">
+              <svg class="password-eye" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6S2 12 2 12Z" fill="none" stroke="currentColor" stroke-width="1.7"/><circle cx="12" cy="12" r="3" fill="none" stroke="currentColor" stroke-width="1.7"/></svg>
+              <span class="toggle-label">Mostrar</span>
+            </button>
+          </div>
+
+          <div class="login-meta-row">
+            <label class="check-inline"><input type="checkbox" checked /> <span>Manter conectado</span></label>
+            <button type="button" class="text-link">Esqueci minha senha</button>
+          </div>
+
+          <p id="loginMessage" class="form-message" aria-live="polite"></p>
+
+          <button type="submit" class="primary-button big-button shine-button premium-login-button">
+            Entrar
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M14 7l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </form>
+
+        <div class="security-line premium-security">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 5 6v5c0 4.8 2.9 8.2 7 10 4.1-1.8 7-5.2 7-10V6l-7-3Z" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
+          Ambiente seguro
+        </div>
+      </main>
+    </div>
+  </section>
+
+  <section id="loginLoadingScreen" class="login-loading-screen hidden-section" aria-hidden="true" aria-live="polite">
+    <div class="login-loading-content" role="status">
+      <img src="assets/jp-logo-login.svg" alt="J&P Serviços Médicos" />
+      <div class="login-loading-indicator" aria-hidden="true"><span></span></div>
+      <strong>Preparando seu painel</strong>
+      <span>Aguarde um instante…</span>
+    </div>
+  </section>
+
+  <section id="dashboardScreen" class="dashboard-screen hidden-section">
+    <aside class="sidebar">
+      <button id="sidebarToggle" class="sidebar-brand jp-sidebar-brand" type="button" aria-label="Recolher menu" title="Recolher menu">
+        <span class="sidebar-brand-wordmark" aria-hidden="true">
+          <span class="sidebar-jp-letters"><span>J</span><span>&amp;</span><span>P</span></span>
+          <span class="sidebar-services"><span>SERVIÇOS</span><span>MÉDICOS</span></span>
+        </span>
+        <span class="sidebar-brand-monogram-text" aria-hidden="true"><span>J</span><span>&amp;</span><span>P</span></span>
+        <span class="sidebar-brand-caption">Recrutamento Médico</span>
+      </button>
+
+      <nav class="sidebar-nav">
+        <button class="side-item active" data-section="candidatesSection">
+          <span class="side-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.2"/><path d="M3.8 18c.8-3 3-4.8 5.2-4.8s4.4 1.8 5.2 4.8" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16.5 7.3h4.5M18.75 5.1v4.4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+          </span>
+          <span class="side-label">Candidatos</span>
+        </button>
+        <button class="side-item" data-section="pipelineSection">
+          <span class="side-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M6 6h4v4H6zM14 14h4v4h-4zM8 10v4h8" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+          <span class="side-label">Etapas</span>
+        </button>
+        <button class="side-item" data-section="reportsSection">
+          <span class="side-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M5 18V9M12 18V6M19 18v-4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M4 18h16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+          </span>
+          <span class="side-label">Indicadores</span>
+        </button>
+        <button class="side-item" data-section="settingsSection">
+          <span class="side-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M12 8.2a3.8 3.8 0 1 0 0 7.6 3.8 3.8 0 0 0 0-7.6Z" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M19 12a7.7 7.7 0 0 0-.1-1.1l2-1.5-2-3.4-2.4 1a8.3 8.3 0 0 0-1.9-1.1l-.3-2.6h-4l-.3 2.6A8.3 8.3 0 0 0 7.5 7l-2.4-1-2 3.4 2 1.5A7.7 7.7 0 0 0 5 12c0 .4 0 .7.1 1.1l-2 1.5 2 3.4 2.4-1c.6.5 1.2.8 1.9 1.1l.3 2.6h4l.3-2.6c.7-.3 1.3-.6 1.9-1.1l2.4 1 2-3.4-2-1.5c.1-.4.1-.7.1-1.1Z" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg>
+          </span>
+          <span class="side-label">Configurações</span>
+        </button>
+      </nav>
+
+      <div class="sidebar-card">
+        <span>Link de candidatura</span>
+        <strong>Envie para o médico preencher os dados</strong>
+        <button id="copyApplicationLink" class="primary-button compact-full" type="button">Copiar link</button>
+        <a id="openApplicationPage" class="secondary-button compact-full" href="pages/candidatura.html" target="_blank" rel="noopener">Abrir página pública</a>
+      </div>
+
+      <button id="sidebarEmptyToggle" class="sidebar-empty-toggle" type="button" aria-label="Recolher menu pela área inferior" title="Recolher menu"></button>
+
+      <div class="sidebar-profile">
+        <button id="profileMenuButton" class="sidebar-user" type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="sidebarProfileMenu">
+          <div class="avatar-circle">AD</div>
+          <div>
+            <strong>Administrador</strong>
+            <span>admin@jpservicosmedicos.com.br</span>
+          </div>
+          <svg class="profile-menu-chevron" viewBox="0 0 20 20" aria-hidden="true"><path d="m6 8 4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div id="sidebarProfileMenu" class="sidebar-profile-menu hidden-section" role="dialog" aria-label="Perfil do usuário" aria-hidden="true">
+          <span class="profile-menu-kicker">Usuário conectado</span>
+          <strong id="profileMenuName">Administrador</strong>
+          <span id="profileMenuEmail">admin@jpservicosmedicos.com.br</span>
+          <small id="profileMenuRole">Equipe de recrutamento</small>
+          <button id="viewProfileButton" type="button">Ver perfil</button>
+        </div>
+      </div>
+      <button id="logoutButton" class="ghost-button logout-button" type="button">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 5H5v14h5M14 8l4 4-4 4M8 12h10" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span class="logout-label">Sair</span>
+      </button>
+    </aside>
+
+    <main class="dashboard-main">
+      <header class="dashboard-header">
+        <div class="dashboard-header__brand">
+          <img class="dashboard-header-logo" src="assets/jp-logo-horizontal.png" alt="J&P Serviços Médicos" />
+          <div class="dashboard-header__title">
+            <span class="dashboard-header__eyebrow">Painel administrativo</span>
+            <strong>Recrutamento Médico</strong>
+          </div>
+        </div>
+        <div class="dashboard-header__meta">
+          <div class="header-chip">Equipe de recrutamento</div>
+          <div class="header-chip muted">Ambiente profissional</div>
+        </div>
+      </header>
+
+      <section id="candidatesSection" class="content-section active">
+      <header class="main-topbar">
+        <div>
+          <span class="eyebrow dark">Recrutamento médico</span>
+          <h2>Gestão de currículos e candidatos</h2>
+          <p>Visualize médicos, compartilhe o link de candidatura e acompanhe cada etapa.</p>
+        </div>
+        <div class="topbar-actions">
+          <button id="previewApplicationLink" class="secondary-button" type="button">Ver página de candidatura</button>
+          <button id="openNewCandidate" class="primary-button" type="button">+ Novo candidato</button>
+        </div>
+      </header>
+
+        <div class="stats-grid">
+          <article class="stat-card"><span>Total</span><strong id="metricTotal">0</strong><small>Médicos cadastrados</small></article>
+          <article class="stat-card"><span>Em análise</span><strong id="metricReview">0</strong><small>Currículos em avaliação</small></article>
+          <article class="stat-card"><span>Aprovados</span><strong id="metricApproved">0</strong><small>Perfis validados</small></article>
+          <article class="stat-card"><span>Reprovados</span><strong id="metricRejected">0</strong><small>Processos encerrados</small></article>
+        </div>
+
+        <div class="table-panel">
+          <div class="table-toolbar">
+            <div class="search-box">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="m16 16 4 4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+              <input id="candidateSearch" type="search" aria-label="Buscar candidatos" placeholder="Buscar por médico, especialidade, cidade ou CRM..." />
+            </div>
+            <select id="statusFilter" class="blue-select" aria-label="Filtrar candidatos por status">
+              <option value="all">Todos os status</option>
+              <option value="novo">Novo</option>
+              <option value="analise">Em análise</option>
+              <option value="entrevista">Entrevista</option>
+              <option value="aprovado">Aprovado</option>
+              <option value="reprovado">Reprovado</option>
+            </select>
+          </div>
+
+          <div class="table-head medical-grid">
+            <span>Médico</span>
+            <span>Especialidade</span>
+            <span>CRM</span>
+            <span>Data</span>
+            <span>Status</span>
+            <span>Ação</span>
+          </div>
+          <div id="candidateList" class="candidate-list"></div>
+          <div id="emptyState" class="empty-state hidden">Nenhum médico encontrado com esses filtros.</div>
+        </div>
+      </section>
+
+      <section id="pipelineSection" class="content-section">
+        <div class="section-page-heading">
+          <div><span>Fluxo de recrutamento</span><h2>Etapas do processo seletivo</h2><p>Acompanhe os médicos em cada fase do processo.</p></div>
+        </div>
+        <div class="kanban-grid">
+          <article class="kanban-column"><div class="kanban-title">Novo</div><div id="kanbanNew" class="kanban-list"></div></article>
+          <article class="kanban-column"><div class="kanban-title">Em análise</div><div id="kanbanReview" class="kanban-list"></div></article>
+          <article class="kanban-column"><div class="kanban-title">Entrevista</div><div id="kanbanInterview" class="kanban-list"></div></article>
+          <article class="kanban-column"><div class="kanban-title">Aprovado</div><div id="kanbanApproved" class="kanban-list"></div></article>
+          <article class="kanban-column"><div class="kanban-title">Reprovado</div><div id="kanbanRejected" class="kanban-list"></div></article>
+        </div>
+      </section>
+
+      <section id="reportsSection" class="content-section">
+        <div class="section-page-heading indicators-page-heading">
+          <div>
+            <span>Indicadores médicos</span>
+            <h2>Visão das especialidades</h2>
+            <p>Distribuição atual dos médicos cadastrados, atualizada sempre que você acessa esta área.</p>
+          </div>
+          <div class="indicators-refresh-status">
+            <span class="refresh-dot" aria-hidden="true"></span>
+            <div><small>Última atualização</small><strong id="indicatorsUpdatedAt">Agora</strong></div>
+          </div>
+        </div>
+
+        <div class="indicator-kpi-grid">
+          <article class="indicator-kpi-card indicator-kpi-primary">
+            <div class="indicator-kpi-icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3"/><path d="M4 19c.8-3.4 3-5.2 5-5.2s4.2 1.8 5 5.2M16 8h4M18 6v4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+            </div>
+            <div><span>Médicos cadastrados</span><strong id="indicatorDoctorsTotal">0</strong><small>total no banco de talentos</small></div>
+          </article>
+          <article class="indicator-kpi-card">
+            <div class="indicator-kpi-icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5h14v14H5zM8 9h8M8 13h5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+            </div>
+            <div><span>Especialidades</span><strong id="indicatorSpecialtiesTotal">0</strong><small>áreas representadas</small></div>
+          </article>
+          <article class="indicator-kpi-card indicator-kpi-beige">
+            <div class="indicator-kpi-icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 5 6v5c0 4.8 2.9 8.2 7 10 4.1-1.8 7-5.2 7-10V6l-7-3Z" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="m9 12 2 2 4-4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div><span>CRM + RQE informado</span><strong id="indicatorRqeRate">0%</strong><small>perfis com registro complementar</small></div>
+          </article>
+          <article class="indicator-kpi-card">
+            <div class="indicator-kpi-icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M12 8v4l3 2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+            </div>
+            <div><span>Em processo</span><strong id="indicatorInProcess">0</strong><small>análise ou entrevista</small></div>
+          </article>
+        </div>
+
+        <div class="indicators-main-grid">
+          <article class="specialty-chart-card premium-indicator-card">
+            <div class="chart-card-heading indicators-card-heading">
+              <div>
+                <span>Distribuição por área</span>
+                <h3>Especialidades dos candidatos</h3>
+                <p>Participação de cada especialidade no total de médicos.</p>
+              </div>
+              <div class="chart-total-badge"><strong id="specialtyTotal">0</strong><span>médicos</span></div>
+            </div>
+
+            <div class="specialty-dashboard-chart">
+              <div class="specialty-donut-column">
+                <div id="specialtyDonut" class="specialty-donut" role="img" aria-label="Distribuição de médicos por especialidade">
+                  <div class="specialty-donut-center"><strong id="specialtyDonutTotal">0</strong><span>candidatos</span></div>
+                </div>
+                <div id="specialtyLegend" class="specialty-legend"></div>
+              </div>
+              <div class="specialty-ranking-column">
+                <div class="ranking-header"><strong>Ranking de especialidades</strong><span>participação</span></div>
+                <div id="specialtyChart" class="specialty-chart specialty-ranking" aria-label="Ranking de médicos por especialidade"></div>
+              </div>
+            </div>
+          </article>
+
+          <aside class="indicator-insights">
+            <article class="indicator-insight-card leader-card">
+              <span>Maior presença</span>
+              <strong id="specialtyLeader">—</strong>
+              <small id="specialtyLeaderCount">0 médicos</small>
+              <div class="leader-mark">01</div>
+            </article>
+            <article class="indicator-insight-card">
+              <span>Diversidade</span>
+              <strong id="specialtyKinds">0</strong>
+              <small>especialidades diferentes</small>
+            </article>
+            <article class="indicator-insight-card beige-insight">
+              <span>RQE informado</span>
+              <strong id="rqeRate">0%</strong>
+              <small>dos perfis cadastrados</small>
+            </article>
+          </aside>
+        </div>
+      </section>
+
+      <section id="settingsSection" class="content-section">
+        <div class="section-page-heading">
+          <div><span>Conta do usuário</span><h2>Meu perfil</h2><p>Atualize apenas as informações do usuário que acessa o painel.</p></div>
+        </div>
+        <div class="profile-settings-card">
+          <div class="profile-settings-aside">
+            <div id="profileAvatar" class="profile-avatar-large">AD</div>
+            <strong id="profileDisplayName">Administrador</strong>
+            <span id="profileDisplayRole">Equipe de recrutamento</span>
+          </div>
+          <form id="profileForm" class="profile-form">
+            <div class="form-cols">
+              <label>Nome do usuário<input id="profileName" type="text" value="Administrador" required /></label>
+              <label>Cargo / função<input id="profileRole" type="text" value="Equipe de recrutamento" required /></label>
+            </div>
+            <div class="form-cols">
+              <label>E-mail<input id="profileEmail" type="email" value="admin@jpservicosmedicos.com.br" required /></label>
+              <label>Telefone<input id="profilePhone" type="tel" value="" placeholder="(00) 00000-0000" /></label>
+            </div>
+            <div class="profile-actions"><button class="primary-button compact-width" type="submit">Salvar perfil</button></div>
+          </form>
+        </div>
+      </section>
+    </main>
+  </section>
+
+  <div id="toast" class="toast hidden">Link copiado com sucesso.</div>
+
+  <div id="candidateModal" class="modal-backdrop hidden" aria-hidden="true">
+    <div class="modal-card big-modal">
+      <button class="modal-close" id="closeCandidateModal" type="button" aria-label="Fechar">×</button>
+      <div class="modal-header">
+        <div id="modalAvatar" class="modal-avatar">MC</div>
+        <div>
+          <span id="modalStatus" class="status-pill status-analise">Em análise</span>
+          <h3 id="modalName">Dra. Mariana Costa</h3>
+          <p id="modalSpecialty">Cardiologia • São Paulo</p>
+        </div>
+      </div>
+
+      <div class="modal-info-grid">
+        <article><span>CRM</span><strong id="modalCrm">CRM/SP 123456</strong></article>
+        <article><span>RQE</span><strong id="modalRqe">RQE 44521</strong></article>
+        <article><span>E-mail</span><strong id="modalEmail">medica@email.com</strong></article>
+        <article><span>Telefone</span><strong id="modalPhone">(11) 99999-0000</strong></article>
+        <article><span>Experiência</span><strong id="modalExperience">8 anos</strong></article>
+        <article><span>Disponibilidade</span><strong id="modalAvailability">Seg a Sex • Tarde</strong></article>
+      </div>
+
+      <div class="curriculum-block">
+        <div class="curriculum-heading">
+          <div>
+            <span>Resumo curricular</span>
+            <h4>Visão geral do currículo</h4>
+          </div>
+          <button id="openPdfButton" class="secondary-button curriculum-pdf-button" type="button">Abrir currículo</button>
+        </div>
+        <ul id="modalCurriculum" class="curriculum-list"></ul>
+      </div>
+
+      <div class="candidate-decision-block">
+        <div>
+          <span>Decisão da candidatura</span>
+          <strong>Atualize o status deste médico</strong>
+        </div>
+        <div class="candidate-status-actions" id="candidateStatusActions">
+          <button type="button" class="status-action status-action-review" data-status-action="analise">Em análise</button>
+          <button type="button" class="status-action status-action-approved" data-status-action="aprovado">Aprovado</button>
+          <button type="button" class="status-action status-action-rejected" data-status-action="reprovado">Reprovado</button>
+        </div>
+      </div>
+
+      <div class="candidate-documents-block">
+        <div class="candidate-documents-heading">
+          <div>
+            <span>Documentação</span>
+            <h4>Arquivos enviados pelo médico</h4>
+          </div>
+          <span id="modalDocumentsCount" class="documents-count">0 arquivos</span>
+        </div>
+        <div id="modalDocumentsList" class="candidate-documents-list"></div>
+      </div>
+
+      <div class="notes-block">
+        <span>Observações</span>
+        <p id="modalNotes">Perfil com boa experiência hospitalar e disponibilidade para início imediato.</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="newCandidateModal" class="modal-backdrop hidden" aria-hidden="true">
+    <div class="modal-card">
+      <button class="modal-close" id="closeNewCandidate" type="button" aria-label="Fechar">×</button>
+      <div class="small-modal-heading">
+        <span class="eyebrow dark">Cadastro manual</span>
+        <h3>Novo médico</h3>
+        <p>Adicione um médico manualmente ao funil de recrutamento.</p>
+      </div>
+
+      <form id="newCandidateForm" class="new-form">
+        <label>Nome completo<input id="newName" type="text" required placeholder="Ex.: Dr. João da Silva" /></label>
+        <div class="form-cols">
+          <label>Especialidade<input id="newSpecialty" type="text" required placeholder="Ex.: Pediatria" /></label>
+          <label>CRM<input id="newCrm" type="text" required placeholder="Ex.: CRM/SP 123456" /></label>
+        </div>
+        <div class="form-cols">
+          <label>Cidade<input id="newCity" type="text" required placeholder="Ex.: Cerquilho" /></label>
+          <label>RQE<input id="newRqe" type="text" placeholder="Ex.: RQE 55210" /></label>
+        </div>
+        <div class="form-cols">
+          <label>E-mail<input id="newEmail" type="email" required placeholder="email@exemplo.com" /></label>
+          <label>Telefone <span class="required-star">*</span><input id="newPhone" type="text" required placeholder="(15) 99999-9999" /></label>
+        </div>
+        <div class="form-cols">
+          <label>Experiência<input id="newExperience" type="text" placeholder="Ex.: 6 anos" /></label>
+          <label>Status
+            <select id="newStatus" class="blue-select">
+              <option value="novo">Novo</option>
+              <option value="analise">Em análise</option>
+              <option value="entrevista">Entrevista</option>
+              <option value="aprovado">Aprovado</option>
+              <option value="reprovado">Reprovado</option>
+            </select>
+          </label>
+        </div>
+        <label>Disponibilidade <span class="required-star">*</span><input id="newAvailability" type="text" required placeholder="Ex.: Seg a Sex • Manhã" /></label>
+        <label>Observações<textarea id="newNotes" rows="4" placeholder="Informações relevantes do candidato..."></textarea></label>
+        <div class="modal-actions">
+          <button id="cancelNewCandidate" class="ghost-button" type="button">Cancelar</button>
+          <button class="primary-button compact-width" type="submit">Cadastrar médico</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
